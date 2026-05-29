@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/company/:companyId/dashboard.txt",
+      "destination": "/company/dummy/dashboard.txt"
+    },
+    {
+      "source": "/company/:companyId/dashboard",
+      "destination": "/company/dummy/dashboard.html"
+    }
+  ]
+}
