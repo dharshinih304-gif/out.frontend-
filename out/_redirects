@@ -1,0 +1,7 @@
+# Redirect dynamic routes to their generated dummy HTML files
+/company/*/dashboard  /company/dummy/dashboard.html  200
+/reports/*           /reports/dummy.html           200
+/vessels/*           /vessels/dummy.html           200
+
+# Fallback
+/*                   /index.html                   200

@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # If the requested file or directory exists, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+  
+  # Next.js App Router Static Export - Dynamic Route Fallbacks
+  # Map dynamic URLs to the dummy generated HTML files so Next.js can hydrate and read the URL parameters
+  
+  # Company Dashboard route
+  RewriteRule ^company/[^/]+/dashboard/?$ company/dummy/dashboard.html [L]
+  
+  # Reports dynamic route
+  RewriteRule ^reports/[^/]+/?$ reports/dummy.html [L]
+  
+  # Vessels dynamic route
+  RewriteRule ^vessels/[^/]+/?$ vessels/dummy.html [L]
+  
+  # Fallback all other missing routes to 404
+  RewriteRule ^ 404.html [L]
+</IfModule>
